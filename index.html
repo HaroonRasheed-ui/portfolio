@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Haroon Rasheed — AI & Automation Engineer | Production LLMs, OCR & Neural Pipelines</title>
+  <meta name="description" content="Haroon Rasheed is an AI & Automation Engineer specializing in LangChain, FastAPI, n8n, OpenVINO, PaddleOCR, and pgvector. Production architectures cutting manual workflows by 40%." />
+  <meta name="keywords" content="Haroon Rasheed, AI Engineer, Automation Engineer, LangChain, FastAPI, n8n, PaddleOCR, OpenVINO, pgvector, Python, RAG, Machine Learning" />
+  <meta name="author" content="Haroon Rasheed" />
+  <meta name="theme-color" content="#08090C" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Haroon Rasheed — AI & Automation Engineer" />
+  <meta property="og:description" content="Production AI architectures, accelerated OCR pipelines (304s → 58s), and autonomous enterprise workflows." />
+  <meta property="og:image" content="assets/profile.png" />
+  <meta property="og:url" content="https://haroonrasheed-ui.github.io/portfolio/" />
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Top Progress Fill Rail -->
+  <div class="scroll-progress-rail" aria-hidden="true">
+    <div class="scroll-progress-fill" id="scroll-progress-fill"></div>
+  </div>
+
+  <!-- FLOATING HUD NAVIGATION -->
+  <header class="site-nav">
+    <div class="nav-container">
+      <!-- Brand Pill -->
+      <a href="#hero" class="nav-brand-pill" aria-label="Haroon Rasheed Home">
+        <div class="brand-indicator">
+          <span class="brand-dot"></span>
+        </div>
+        <span class="brand-name">Haroon Rasheed</span>
+        <span class="brand-tag font-mono">AI ENGINEER</span>
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <nav class="nav-menu-bar" aria-label="Main Navigation">
+        <a href="#hero" class="nav-link active">Overview</a>
+        <a href="#simulator" class="nav-link">Systems</a>
+        <a href="#flagship" class="nav-link">Case Studies</a>
+        <a href="#stack-matrix" class="nav-link">Stack</a>
+        <a href="#all-projects" class="nav-link">Archive</a>
+        <a href="#experience" class="nav-link">Timeline</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Nav Actions (Theme Toggle, Recruiter Mode, Audio FX, Cmd+K, Resume) -->
+      <div class="nav-actions-group">
+        <button class="hud-btn theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Light / Dark Studio Theme" title="Toggle Light / Dark Studio Theme">
+          <svg class="theme-icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="theme-icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <button class="hud-btn" id="mode-toggle-btn" aria-label="Toggle Recruiter Fast Mode">
+          <span class="mode-pill deep-active">⚡ Recruiter</span>
+        </button>
+
+        <button class="hud-btn" id="audio-toggle-btn" aria-label="Toggle Tactical Audio Feedback" title="Click to toggle mechanical keyboard / haptic audio click sounds">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <line x1="23" y1="9" x2="17" y2="15"></line>
+            <line x1="17" y1="9" x2="23" y2="15"></line>
+          </svg>
+          <span class="audio-label">FX: Muted</span>
+        </button>
+
+        <button class="cmdk-shortcut-pill" id="cmdk-trigger-btn" aria-label="Open Command Palette" title="Search Command Palette (⌘K)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <kbd>⌘K</kbd>
+        </button>
+
+        <a href="assets/Haroon_Rasheed_Resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-resume-btn" download>
+          <span>Resume</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Open Mobile Menu" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Nav Drawer -->
+    <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+      <div class="mobile-nav-links">
+        <a href="#hero">Overview</a>
+        <a href="#simulator">Interactive Systems Lab</a>
+        <a href="#flagship">Featured Case Studies</a>
+        <a href="#stack-matrix">Technology Stack & Proof</a>
+        <a href="#all-projects">Complete 24+ Project Archive</a>
+        <a href="#experience">Work Experience</a>
+        <a href="#contact">Direct Contact</a>
+        <a href="assets/Haroon_Rasheed_Resume.pdf" target="_blank" rel="noopener noreferrer" style="color:var(--accent-emerald-bright);">Download Resume PDF (Verified)</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================================================================
+       01. HERO SECTION & TELEMETRY
+       =================================================================== -->
+  <section class="hero-section" id="hero">
+    <div class="canvas-container">
+      <canvas id="neural-canvas"></canvas>
+    </div>
+
+    <div class="hero-content-wrap">
+      <!-- Left Column: Hero Identity Card, Big Photo, Direct Socials, Stats & Actions -->
+      <div class="hero-left">
+        <div class="hero-profile-card">
+          <!-- Top Row: Status Pill & Direct Clickable Social Icons -->
+          <div class="hero-card-header">
+            <div class="open-to-work-pill font-mono">
+              <span class="sage-dot"></span>
+              <span>OPEN_TO_WORK</span>
+            </div>
+
+            <!-- Direct Clickable Social Channels -->
+            <div class="hero-social-links">
+              <a href="https://www.linkedin.com/in/haroon-rasheed-383768375" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn Profile" title="Open LinkedIn Profile">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              </a>
+              <a href="https://github.com/HaroonRasheed-ui" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="GitHub Profile" title="Open GitHub Profile">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              </a>
+              <a href="mailto:haroon5253rasheed@gmail.com" class="social-icon-btn" aria-label="Send Direct Email" title="Send Direct Email (haroon5253rasheed@gmail.com)">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Profile Head: Big Image & Headline -->
+          <div class="hero-profile-head">
+            <div class="hero-avatar-big">
+              <img src="assets/profile.png" alt="Haroon Rasheed" class="avatar-img-big" />
+            </div>
+            <div class="hero-name-block">
+              <h1 class="hero-main-name">
+                Haroon <span class="name-terracotta">Rasheed</span>
+              </h1>
+              <div class="hero-role-subhead font-mono">
+                AI Automation Engineer · <strong>LangChain</strong> · <strong>FastAPI</strong> · <strong>n8n</strong>
+              </div>
+              <div class="hero-company-pill font-mono">
+                Junior AI Engineer @ Apex Innovation Tech
+              </div>
+            </div>
+          </div>
+
+          <!-- Bio Lead -->
+          <p class="hero-bio-lead">
+            Building production LLM pipelines, OCR systems, and workflow automation that eliminate manual work and ship measurable results.
+          </p>
+
+          <!-- 3 Stat Cards in a Single Aligned Row -->
+          <div class="hero-stats-row">
+            <div class="hero-stat-card">
+              <span class="h-stat-num">40%</span>
+              <span class="h-stat-label font-mono">LESS MANUAL WORK</span>
+            </div>
+            <div class="hero-stat-card">
+              <span class="h-stat-num">15-20s</span>
+              <span class="h-stat-label font-mono">HAEIRLENS PIPELINE</span>
+            </div>
+            <div class="hero-stat-card">
+              <span class="h-stat-num">0.26s</span>
+              <span class="h-stat-label font-mono">OCR PER REGION</span>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="hero-action-buttons">
+            <a href="#simulator" class="btn btn-primary">
+              <span>⚡ Test Interactive Pipeline</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </a>
+
+            <a href="#flagship" class="btn btn-secondary">
+              <span>Inspect Case Studies</span>
+            </a>
+
+            <a href="assets/Haroon_Rasheed_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline" download>
+              <span>Verified CV (PDF)</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Terminal Window matching reference (.what_i_build.n8n) -->
+      <div class="hero-right">
+        <div class="mac-terminal-window">
+          <div class="terminal-titlebar">
+            <div class="mac-window-dots">
+              <span class="m-dot red"></span>
+              <span class="m-dot yellow"></span>
+              <span class="m-dot green"></span>
+            </div>
+            <span class="terminal-filename font-mono">what_i_build.n8n</span>
+          </div>
+
+          <div class="terminal-conversation" id="terminal-conversation">
+            <div class="chat-bubble user-msg font-mono">
+              Can you automate our onboarding flow?
+            </div>
+            <div class="chat-bubble ai-msg font-mono">
+              Connecting your CRM, email, and Slack with n8n. Done in minutes.
+            </div>
+            <div class="chat-bubble user-msg font-mono">
+              What about a 24/7 support chatbot?
+            </div>
+            <div class="chat-bubble ai-msg font-mono">
+              Built with LangChain and the OpenAI API. Ready to ship.
+            </div>
+          </div>
+
+          <div class="terminal-pills-bar font-mono" id="terminal-pills">
+            <button class="term-tag-btn" data-tag="python">Python</button>
+            <button class="term-tag-btn" data-tag="langchain">LangChain</button>
+            <button class="term-tag-btn" data-tag="openai">OpenAI</button>
+            <button class="term-tag-btn" data-tag="fastapi">FastAPI</button>
+            <button class="term-tag-btn active" data-tag="n8n">n8n</button>
+            <button class="term-tag-btn" data-tag="rag">RAG</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       02. DYNAMIC SYSTEMS & AI EXPERIENCE (The Interactive Simulator)
+       =================================================================== -->
+  <section class="content-section" id="simulator">
+    <div class="section-head">
+      <span class="section-eyebrow font-mono">INTERACTIVE ARCHITECTURE LAB</span>
+      <h2 class="section-title">Autonomous Pipeline Execution Console</h2>
+      <p class="section-lead">
+        Interact with the live architecture of my production systems. Switch presets to test the HaeirLens OCR pipeline (15-20s processing), the on-premise M365 AI Executive Assistant, or the 5-stage automated bookkeeping suite. Click any stage node to inspect its internal logic, latency profile, and actual intermediate JSON state.
+      </p>
+    </div>
+
+    <!-- Simulator Container -->
+    <div id="pipeline-simulator-container"></div>
+  </section>
+
+  <!-- ===================================================================
+       03. FEATURED CASE STUDIES & ARCHITECTURAL BLUEPRINTS
+       =================================================================== -->
+  <section class="content-section" id="flagship">
+    <div class="section-head">
+      <span class="section-eyebrow font-mono">FLAGSHIP ENGINEERING BLUEPRINTS</span>
+      <h2 class="section-title">Production Systems as Products</h2>
+      <p class="section-lead">
+        Real software engineering isn't just card mockups — it's architectural decisions, trade-offs between local vs cloud compute, latency bottlenecks, and error handling. Click <strong>"Inspect System Architecture"</strong> on any project to inspect its end-to-end blueprint, incident post-mortems, and verified code excerpts.
+      </p>
+    </div>
+
+    <div class="flagship-grid" id="flagship-projects-grid">
+      <!-- Rendered dynamically by main.js -->
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       04. TECHNOLOGY STACK LINKED TO PRODUCTION EVIDENCE
+       =================================================================== -->
+  <section class="content-section" id="stack-matrix">
+    <div class="section-head">
+      <span class="section-eyebrow font-mono">PROOF OVER BADGES</span>
+      <h2 class="section-title">Technology Matrix with Verified Evidence</h2>
+      <p class="section-lead">
+        A technology list without proof has zero credibility. Below, every skill is mapped directly to the production system, client, or open-source codebase where it was deployed, along with the measurable business or technical result. <em>Click any skill to filter projects across the entire portfolio.</em>
+      </p>
+    </div>
+
+    <div class="tech-categories-grid" id="tech-matrix-container">
+      <!-- Rendered dynamically by main.js -->
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       05. COMPLETE 24+ PROJECTS ARCHIVE & GITHUB EXPLORER
+       =================================================================== -->
+  <section class="content-section" id="all-projects">
+    <div class="section-head">
+      <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+        <div>
+          <span class="section-eyebrow font-mono">REPOSITORY INDEX</span>
+          <h2 class="section-title">Complete Project &amp; GitHub Archive</h2>
+          <p class="section-lead">
+            Explore all 24+ production systems, open-source automation workflows, deep learning models, and computer vision projects created by Haroon Rasheed.
+          </p>
+        </div>
+        <span class="card-badge font-mono" id="project-count-badge" style="font-size:0.85rem; padding:6px 14px;">24 Projects</span>
+      </div>
+    </div>
+
+    <!-- Search & Filter Controls -->
+    <div class="archive-controls">
+      <div class="archive-search-bar">
+        <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input 
+          type="text" 
+          class="project-search-input font-mono" 
+          id="project-search-input" 
+          placeholder="Filter by technology (e.g. FastAPI, OpenVINO, n8n, YOLOv8, pgvector)..." />
+      </div>
+
+      <div class="archive-category-chips">
+        <button class="category-chip active" data-cat="all">All Systems</button>
+        <button class="category-chip" data-cat="LLM">LLM &amp; Conversational AI</button>
+        <button class="category-chip" data-cat="Workflow">Workflow Automation</button>
+        <button class="category-chip" data-cat="Vision">Computer Vision &amp; Audio</button>
+        <button class="category-chip" data-cat="Classical">Classical AI Agents</button>
+        <button class="category-chip" data-cat="Applied ML">Applied ML &amp; Data Science</button>
+      </div>
+    </div>
+
+    <!-- Archive Grid -->
+    <div class="archive-grid" id="all-projects-grid">
+      <!-- Rendered dynamically by main.js -->
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       06. WORK EXPERIENCE & PRODUCTION EVIDENCE
+       =================================================================== -->
+  <section class="content-section" id="experience">
+    <div class="section-head">
+      <span class="section-eyebrow font-mono">CAREER RECORD</span>
+      <h2 class="section-title">Work Experience &amp; Operational Impact</h2>
+      <p class="section-lead">
+        A track record of shipping production AI software, automating high-value financial operations, and leading teams to measurable efficiency gains.
+      </p>
+    </div>
+
+    <div class="timeline-container" id="experience-timeline-container">
+      <!-- Rendered dynamically by main.js -->
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       07. ACADEMIC BACKGROUND & RESEARCH
+       =================================================================== -->
+  <section class="content-section" id="academic">
+    <div class="section-head">
+      <span class="section-eyebrow font-mono">RESEARCH &amp; RECOGNITION</span>
+      <h2 class="section-title">Academic Background &amp; Fellowships</h2>
+      <p class="section-lead">
+        Rigorous foundations in artificial intelligence theory paired with ongoing research in online trust, safety, and assistive computer vision.
+      </p>
+    </div>
+
+    <div class="research-cards-grid">
+      <!-- Degree -->
+      <div class="research-card">
+        <div class="rc-head">
+          <span class="rc-type font-mono">B.S. DEGREE</span>
+          <span class="rc-status font-mono">2021 — 2025</span>
+        </div>
+        <h3 class="rc-title">Bachelor of Science in Artificial Intelligence</h3>
+        <p class="rc-venue">The University of Haripur · Harīpur, KP, Pakistan</p>
+        <p class="rc-desc">
+          Core focus on Machine Learning, Deep Neural Networks, Computer Vision, Edge Computing, and Classical Agent Architectures. Final year research project: AI Smart Glasses for Visually Impaired People with YOLOv8 &amp; bilingual TTS.
+        </p>
+      </div>
+
+      <!-- Fellowship -->
+      <div class="research-card">
+        <div class="rc-head">
+          <span class="rc-type font-mono">FELLOWSHIP TRAINING</span>
+          <span class="rc-status font-mono">Completed Oct 2026</span>
+        </div>
+        <h3 class="rc-title">Internet Society Pre-Fellowship Training</h3>
+        <p class="rc-venue">Internet Society (ISOC) · Online Trust &amp; Safety Track</p>
+        <p class="rc-desc">
+          Advanced coursework on Internet governance, encryption protocols, digital rights, and online safety standards. Currently applying for the prestigious 2027 Internet Society Global Fellowship.
+        </p>
+      </div>
+
+      <!-- Conference Paper -->
+      <div class="research-card">
+        <div class="rc-head">
+          <span class="rc-type font-mono">PEER-REVIEWED RESEARCH</span>
+          <span class="rc-status font-mono">Under Review · 2026</span>
+        </div>
+        <h3 class="rc-title">Applied Computer Vision &amp; Assistive AI</h3>
+        <p class="rc-venue">ICAAD 2026 · Selcuk University</p>
+        <p class="rc-desc">
+          Submitted paper under peer review to the International Conference on AI Across Disciplines (ICAAD), detailing edge obstacle detection and spatial monocular distance estimation for assistive wearable devices.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       08. CONTACT & EXECUTIVE OUTREACH
+       =================================================================== -->
+  <section class="content-section" id="contact">
+    <div class="section-head">
+      <span class="section-eyebrow font-mono">LET'S TALK SHOP</span>
+      <h2 class="section-title">Direct Contact &amp; Opportunities</h2>
+      <p class="section-lead">
+        I am actively exploring AI Engineering, Automation Engineering, and LLM Chatbot Developer roles with innovative teams worldwide. Preferred remote and international opportunities.
+      </p>
+    </div>
+
+    <div class="contact-wrap">
+      <!-- Left Channels -->
+      <div class="contact-channels-col">
+        <h3 style="font-family:var(--font-display); font-size:1.4rem; margin-bottom:12px;">Get in Touch Directly</h3>
+        <p style="color:var(--text-secondary); font-size:0.95rem; line-height:1.6; margin-bottom:24px;">
+          Whether you want to discuss low-latency OCR inference with OpenVINO, building RAG systems on pgvector, or automating complex workflows with n8n, my inbox is always open.
+        </p>
+
+        <div class="contact-channels">
+          <a href="mailto:haroon5253rasheed@gmail.com" class="channel-card">
+            <div class="channel-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+            <div class="channel-info">
+              <span class="c-label font-mono">DIRECT EMAIL</span>
+              <span class="c-val">haroon5253rasheed@gmail.com</span>
+            </div>
+          </a>
+
+          <a href="https://www.linkedin.com/in/haroon-rasheed-383768375" target="_blank" rel="noopener noreferrer" class="channel-card">
+            <div class="channel-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </div>
+            <div class="channel-info">
+              <span class="c-label font-mono">LINKEDIN NETWORK</span>
+              <span class="c-val">linkedin.com/in/haroon-rasheed-383768375</span>
+            </div>
+          </a>
+
+          <a href="https://github.com/HaroonRasheed-ui" target="_blank" rel="noopener noreferrer" class="channel-card">
+            <div class="channel-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </div>
+            <div class="channel-info">
+              <span class="c-label font-mono">GITHUB REPOSITORIES</span>
+              <span class="c-val">github.com/HaroonRasheed-ui</span>
+            </div>
+          </a>
+
+          <div class="channel-card">
+            <div class="channel-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+            </div>
+            <div class="channel-info">
+              <span class="c-label font-mono">PHONE &amp; WHATSAPP</span>
+              <span class="c-val">+92 324 0829682</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Form -->
+      <div class="contact-form-box">
+        <h3 style="font-family:var(--font-display); font-size:1.3rem; margin-bottom:18px;">Send a Direct Message</h3>
+        <form onsubmit="event.preventDefault(); window.location.href='mailto:haroon5253rasheed@gmail.com?subject=' + encodeURIComponent(document.getElementById('msg-subject').value || 'Inquiry regarding AI Engineering') + '&body=' + encodeURIComponent(document.getElementById('msg-body').value + '\n\nFrom: ' + document.getElementById('msg-name').value + ' (' + document.getElementById('msg-email').value + ')');">
+          <div class="form-group">
+            <label class="form-label font-mono" for="msg-name">YOUR NAME</label>
+            <input type="text" id="msg-name" class="form-input" placeholder="e.g. Elena Rostova / Hiring Manager" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label font-mono" for="msg-email">YOUR EMAIL</label>
+            <input type="email" id="msg-email" class="form-input" placeholder="e.g. elena@company.com" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label font-mono" for="msg-subject">SUBJECT</label>
+            <input type="text" id="msg-subject" class="form-input" placeholder="e.g. Senior AI / Automation Role Opportunity" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label font-mono" for="msg-body">MESSAGE</label>
+            <textarea id="msg-body" class="form-textarea" placeholder="Tell me about your team, problem space, or technical scope..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:100%;">
+            <span>Send Direct Message</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       FOOTER
+       =================================================================== -->
+  <footer style="border-top:1px solid var(--border-subtle); padding:40px 24px; text-align:center; color:var(--text-muted); font-size:0.85rem;">
+    <div style="max-width:var(--max-width); margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+      <div>
+        <strong style="color:var(--text-primary);">Haroon Rasheed</strong> · AI &amp; Automation Engineer
+      </div>
+      <div class="font-mono" style="font-size:0.75rem;">
+        Engineered with Zero-Bloat Vanilla ES Modules · 60 FPS Neural Canvas
+      </div>
+      <div style="display:flex; gap:16px;">
+        <a href="#hero" style="color:var(--text-secondary);">Back to Top ↑</a>
+        <a href="assets/Haroon_Rasheed_Resume.pdf" target="_blank" rel="noopener noreferrer" style="color:var(--accent-emerald-bright);" download>Resume PDF</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mode Toast Notification -->
+  <div class="mode-toast font-mono" id="mode-toast" role="status" aria-live="polite"></div>
+
+  <!-- Main ES Module Script Entry Point -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
+
