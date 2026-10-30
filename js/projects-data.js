@@ -9,6 +9,7 @@ export const FLAGSHIP_PROJECTS = [
     id: "logiscan-idp",
     title: "HaeirLens",
     subtitle: "Enterprise Document Intelligence & Accelerated OCR Pipeline",
+    category: "Computer Vision & Audio AI",
     client: "Major Appliance Manufacturer",
     role: "Lead AI Engineer",
     period: "2025 - Present",
@@ -17,7 +18,7 @@ export const FLAGSHIP_PROJECTS = [
     highlightMetric: "15s - 20s",
     highlightMetricLabel: "End-to-End Processing (down from 304s)",
     summary: "High-throughput document intelligence engine extracting structured tabular records from multi-page delivery notes, invoices, and gate passes in 15 to 20 seconds with ~0.26s regional inference.",
-    tags: ["FastAPI", "PaddleOCR", "OpenVINO", "OpenCV", "Python", "Docker"],
+    tags: ["FastAPI", "PaddleOCR", "OpenVINO", "OpenCV", "Python", "Docker", "Linux"],
     githubUrl: null,
     liveDemo: null,
     confidential: true,
@@ -77,6 +78,7 @@ class AcceleratedOCRRunner:
     id: "ai-exec-assistant",
     title: "AI Executive Assistant",
     subtitle: "Enterprise Microsoft 365 Copilot & Executive Intelligence",
+    category: "LLM & Conversational AI",
     client: "Apex Innovation Technology",
     role: "Sole AI Architect & Backend Developer",
     period: "2025 - Present",
@@ -140,6 +142,7 @@ async def retrieve_meeting_context(query_embedding: List[float], user_id: str, t
     id: "n8n-bookkeeping",
     title: "n8n Enterprise Bookkeeping Automation Suite",
     subtitle: "End-to-End Autonomous Financial Reconciliation Engine",
+    category: "Workflow Automation",
     client: "US Accounting & Tax Firm",
     role: "Senior Automation Engineer",
     period: "2025 - 2026",
@@ -148,7 +151,7 @@ async def retrieve_meeting_context(query_embedding: List[float], user_id: str, t
     highlightMetric: "40% Workload Cut",
     highlightMetricLabel: "Manual Data-Processing Time Eliminated",
     summary: "Suite of five production-grade n8n workflows connecting QuickBooks Online (QBO), NBKC Bank, Elan Financial, Stripe, and SV Consulting with LLM categorization and human-in-the-loop exception routing.",
-    tags: ["n8n", "OpenAI API", "QuickBooks Online", "Webhooks", "PostgreSQL", "Python"],
+    tags: ["n8n", "OpenAI API", "QuickBooks Online", "Webhooks", "PostgreSQL", "Python", "Docker", "Linux"],
     githubUrl: null,
     liveDemo: null,
     confidential: true,
@@ -204,6 +207,7 @@ return items.map(item => {
     id: "ai-smart-glasses",
     title: "AI Smart Glasses for Visually Impaired People",
     subtitle: "Real-Time Embedded Edge Vision, Obstacle Detection & Bilingual Audio",
+    category: "Computer Vision & Audio AI",
     client: "Final Year Research Project with M. Muneeb Khan",
     role: "Lead Computer Vision & Embedded AI Developer",
     period: "2024 - 2025",
@@ -257,6 +261,7 @@ def evaluate_detections(detections, frame_width):
     id: "bilingual-po-extractor",
     title: "Bilingual Purchase Order Extractor",
     subtitle: "Fault-Tolerant Arabic & English Document Understanding",
+    category: "Computer Vision & Audio AI",
     client: "Middle East Industrial Client",
     role: "AI Pipeline Engineer",
     period: "2025",
@@ -313,6 +318,7 @@ async def parse_purchase_order(image_bytes: bytes) -> PurchaseOrderSchema:
     id: "leadintel-ai",
     title: "LeadIntel.AI: B2B Lead Enrichment",
     subtitle: "Autonomous Enterprise Software & ERP Footprint Discovery",
+    category: "Workflow Automation",
     client: "B2B SaaS Growth Client",
     role: "Full-Stack AI Developer",
     period: "2025",
@@ -374,6 +380,7 @@ export const useLeadEnrichment = (domain: string) => {
     id: "pulsepoint-attendance",
     title: "PulsePoint: Anti-Spoofing Attendance API",
     subtitle: "Zero-Trust Geofencing & Fraud-Resistant Verification Engine",
+    category: "Workflow Automation",
     client: "Workforce Management Client",
     role: "Backend Security & API Engineer",
     period: "2024 - 2025",
@@ -437,6 +444,7 @@ def verify_attendance_payload(payload: CheckInRequest, site: GeofenceSite) -> Ve
     id: "sap-telegram-approvals",
     title: "SAP Telegram Approvals",
     subtitle: "Instant Mobile Executive Document Authorization",
+    category: "Workflow Automation",
     client: "Enterprise ERP Client",
     role: "Backend & Integration Developer",
     period: "2025",
@@ -663,7 +671,7 @@ export const TECH_EVIDENCE_MAP = [
     category: "AI & LLM Orchestration",
     skills: [
       { name: "LangChain", level: "Production", evidence: "M365 Exec Assistant, Intent-Aware Chatbot", impact: "Orchestrated complex RAG retrieval with conversational memory." },
-      { name: "FastAPI", level: "Production", evidence: "LogiScan IDP, PulsePoint, LeadIntel.AI, SAP Bot", impact: "High-throughput async REST endpoints with Pydantic v2 validation." },
+      { name: "FastAPI", level: "Production", evidence: "HaeirLens IDP, PulsePoint, LeadIntel.AI, SAP Bot", impact: "High-throughput async REST endpoints with Pydantic v2 validation." },
       { name: "OpenAI API", level: "Production", evidence: "n8n QBO Automation Suite, M365 Assistant", impact: "Structured JSON schema output, function calling, zero hallucination guardrails." },
       { name: "RAG & Vector Search", level: "Production", evidence: "pgvector on M365 Copilot, Self-Learning FAQ", impact: "Sub-120ms semantic search with HNSW indexing and metadata filtering." },
       { name: "LangGraph", level: "Applied", evidence: "Multi-agent research pipelines & branching logic", impact: "Cyclic state graphs with human-in-the-loop validation checkpoints." },
@@ -675,7 +683,7 @@ export const TECH_EVIDENCE_MAP = [
     skills: [
       { name: "PaddleOCR", level: "Production", evidence: "HaeirLens for major appliance manufacturer", impact: "Multi-language character recognition in noisy industrial documents." },
       { name: "OpenVINO (Intel)", level: "Production", evidence: "HaeirLens HPI deployment, 304s → 15-20s", impact: "Hardware-accelerated INT8/FP16 CPU inference (~0.26s/region)." },
-      { name: "OpenCV", level: "Production", evidence: "AI Smart Glasses, Numberplate ALPR, PulsePoint", impact: "Adaptive thresholding, contour extraction, geometric perspective rectification." },
+      { name: "OpenCV", level: "Production", evidence: "AI Smart Glasses, Numberplate ALPR", impact: "Adaptive thresholding, contour extraction, geometric perspective rectification." },
       { name: "YOLOv8", level: "Production", evidence: "AI Smart Glasses for Visually Impaired", impact: "28 FPS real-time edge obstacle detection on wearable sensors." }
     ]
   },
@@ -685,8 +693,13 @@ export const TECH_EVIDENCE_MAP = [
       { name: "n8n", level: "Production", evidence: "5 live production workflows for US accounting firm", impact: "Cut 40% manual data processing across accounts payable & reconciliation." },
       { name: "QuickBooks Online (QBO)", level: "Production", evidence: "Automated Bookkeeping Suite", impact: "REST API integration, batch transaction posting, token self-healing." },
       { name: "SAP Business One", level: "Production", evidence: "SAP Telegram Approvals, .NET/Angular integrations", impact: "DI-API / Service Layer real-time document approval automation." },
-      { name: "PostgreSQL & pgvector", level: "Production", evidence: "Executive Assistant, PulsePoint, FAQ Bot", impact: "ACID transactional integrity combined with vector similarity search." },
-      { name: "Docker & Linux", level: "Production", evidence: "Containerized FastAPI microservices", impact: "Isolated multi-stage production builds deployed on Ubuntu VPS/edge." }
+      { 
+        name: "Docker & Linux", 
+        level: "Production", 
+        evidence: "n8n Production Instance, HaeirLens IDP", 
+        impact: "Our enterprise n8n automation suite and HaeirLens IDP services are containerized on Docker running on production Linux servers (Ubuntu VPS).",
+        searchKey: "Docker"
+      }
     ]
   }
 ];
