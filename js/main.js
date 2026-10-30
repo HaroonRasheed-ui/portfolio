@@ -324,18 +324,39 @@ class PortfolioApp {
     // Scroll smoothly to project archive and apply search
     const archiveSection = document.getElementById('all-projects');
     const searchInput = document.getElementById('project-search-input');
-    if (searchInput && this.activeTechEvidenceTag) {
-      searchInput.value = this.activeTechEvidenceTag;
-      this.searchQuery = this.activeTechEvidenceTag;
+    
+    // Reset category filter to 'all' so that tech search searches across ALL systems
+    this.activeFilterCategory = 'all';
+    const catPills = document.querySelectorAll('.category-chip');
+    catPills.forEach(p => {
+      if (p.getAttribute('data-cat') === 'all') {
+        p.classList.add('active');
+      } else {
+        p.classList.remove('active');
+      }
+    });
+
+    if (this.activeTechEvidenceTag) {
+      // Find searchKey if specified or simplify skill name
+      let query = this.activeTechEvidenceTag;
+      if (query === 'Docker & Linux') query = 'Docker';
+      else if (query === 'OpenVINO (Intel)') query = 'OpenVINO';
+      else if (query === 'QuickBooks Online (QBO)') query = 'QuickBooks';
+      else if (query === 'RAG & Vector Search') query = 'pgvector';
+      else if (query === 'Gemini 2.0 Flash') query = 'Gemini';
+
+      if (searchInput) searchInput.value = query;
+      this.searchQuery = query;
       this.renderAllProjects();
       if (archiveSection) {
         archiveSection.scrollIntoView({ behavior: 'smooth' });
       }
-    } else if (searchInput && !this.activeTechEvidenceTag) {
-      searchInput.value = '';
+    } else {
+      if (searchInput) searchInput.value = '';
       this.searchQuery = '';
       this.renderAllProjects();
     }
+    if (this.neuralCanvas) this.neuralCanvas.triggerSectionWave();
   }
 
   // ----------------------------------------------------
@@ -349,24 +370,38 @@ class PortfolioApp {
     let filtered = ALL_PROJECTS;
 
     // Filter by Category
-    if (this.activeFilterCategory !== 'all') {
+    if (this.activeFilterCategory && this.activeFilterCategory !== 'all') {
+      const catKey = this.activeFilterCategory.toLowerCase().trim();
       filtered = filtered.filter(p => {
-        if (p.category) {
-          return p.category.toLowerCase().includes(this.activeFilterCategory.toLowerCase());
-        }
-        return true;
+        if (!p.category) return false;
+        const pCat = p.category.toLowerCase();
+        if (catKey === 'llm') return pCat.includes('llm') || pCat.includes('conversational');
+        if (catKey === 'workflow') return pCat.includes('workflow') || pCat.includes('automation');
+        if (catKey === 'vision') return pCat.includes('vision') || pCat.includes('audio') || pCat.includes('ocr');
+        if (catKey === 'classical') return pCat.includes('classical');
+        if (catKey === 'applied ml') return pCat.includes('applied') || pCat.includes('data science');
+        return pCat.includes(catKey);
       });
     }
 
     // Filter by Search Query
     if (this.searchQuery) {
       const q = this.searchQuery.toLowerCase().trim();
-      filtered = filtered.filter(p => 
-        p.title.toLowerCase().includes(q) ||
-        (p.subtitle && p.subtitle.toLowerCase().includes(q)) ||
-        (p.summary && p.summary.toLowerCase().includes(q)) ||
-        (p.tags && p.tags.some(t => t.toLowerCase().includes(q)))
-      );
+      const tokens = q.split(/[\s,&]+/).filter(tok => tok.length > 1);
+      filtered = filtered.filter(p => {
+        const title = p.title.toLowerCase();
+        const subtitle = (p.subtitle || '').toLowerCase();
+        const summary = (p.summary || '').toLowerCase();
+        const category = (p.category || '').toLowerCase();
+        const tags = (p.tags || []).map(t => t.toLowerCase());
+
+        return title.includes(q) ||
+               subtitle.includes(q) ||
+               summary.includes(q) ||
+               category.includes(q) ||
+               tags.some(t => t.includes(q) || q.includes(t)) ||
+               (tokens.length > 0 && tokens.some(tok => tags.includes(tok) || title.includes(tok)));
+      });
     }
 
     if (countBadge) {
@@ -376,13 +411,29 @@ class PortfolioApp {
     if (filtered.length === 0) {
       container.innerHTML = `
         <div class="empty-projects font-mono">
-          <p>No projects found matching "${this.searchQuery}".</p>
+          <p>No projects found matching "${this.searchQuery || this.activeFilterCategory}".</p>
           <button class="btn btn-sm btn-outline" id="clear-search-btn">Reset All Filters</button>
         </div>
       `;
       const clearBtn = container.querySelector('#clear-search-btn');
       if (clearBtn) {
         clearBtn.addEventListener('click', () => {
+          this.searchQuery = '';
+          this.activeFilterCategory = 'all';
+          this.activeTechEvidenceTag = null;
+          const input = document.getElementById('project-search-input');
+          if (input) input.value = '';
+          const catPills = document.querySelectorAll('.category-chip');
+          catPills.forEach(p => {
+            if (p.getAttribute('data-cat') === 'all') p.classList.add('active');
+            else p.classList.remove('active');
+          });
+          this.renderAllProjects();
+          this.renderTechMatrix();
+        });
+      }
+      return;
+    }
           this.searchQuery = '';
           this.activeFilterCategory = 'all';
           this.activeTechEvidenceTag = null;
@@ -685,7 +736,14 @@ class PortfolioApp {
         catPills.forEach(p => p.classList.remove('active'));
         e.currentTarget.classList.add('active');
         this.activeFilterCategory = e.currentTarget.getAttribute('data-cat');
+        // Clear previous search and tech matrix filter so category displays immediately
+        this.activeTechEvidenceTag = null;
+        this.renderTechMatrix();
+        const searchInput = document.getElementById('project-search-input');
+        if (searchInput) searchInput.value = '';
+        this.searchQuery = '';
         this.audio.play('click');
+        if (this.neuralCanvas) this.neuralCanvas.triggerSectionWave();
         this.renderAllProjects();
       });
     });
