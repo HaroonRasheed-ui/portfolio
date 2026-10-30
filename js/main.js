@@ -434,17 +434,6 @@ class PortfolioApp {
       }
       return;
     }
-          this.searchQuery = '';
-          this.activeFilterCategory = 'all';
-          this.activeTechEvidenceTag = null;
-          const input = document.getElementById('project-search-input');
-          if (input) input.value = '';
-          this.renderAllProjects();
-          this.renderTechMatrix();
-        });
-      }
-      return;
-    }
 
     container.innerHTML = filtered.map(p => {
       const isFlagship = FLAGSHIP_PROJECTS.some(f => f.id === p.id);
@@ -750,8 +739,12 @@ class PortfolioApp {
   }
 }
 
-// Instantiate on DOMContentLoaded
-document.addEventListener('DOMContentLoaded', () => {
+// Instantiate reliably regardless of document readyState
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    window.__portfolioApp = new PortfolioApp();
+  });
+} else {
   window.__portfolioApp = new PortfolioApp();
-});
+}
 
