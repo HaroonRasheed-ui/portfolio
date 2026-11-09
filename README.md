@@ -1,7 +1,7 @@
 <div align="center">
 
 # Haroon Rasheed
-### AI Automation Engineer & Systems Builder
+### AI & Automation Engineer & Systems Builder
 
 [![Live Portfolio](https://img.shields.io/badge/Live_Portfolio-haroonrasheed--ui.github.io%2Fportfolio-b45309?style=for-the-badge&logo=google-chrome&logoColor=white)](https://haroonrasheed-ui.github.io/portfolio/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Haroon_Rasheed-0077b5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/haroon-rasheed-383768375)
