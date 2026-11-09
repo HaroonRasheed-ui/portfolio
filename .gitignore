@@ -3,3 +3,4 @@ generate_resume_pdf.py
 __pycache__/
 *.pyc
 
+assets/profile_backup.png
